@@ -21,9 +21,15 @@ export AWS_SECRET_ACCESS_KEY=<SECRET_KEY_HERE>
 
 ```
 
-4. Initialize terraform: ``` terraform init ```
-5. Terraform plan: ``` terraform plan -out=tf.plan ```
-6. If above step works, Terraform apply: ``` terraform apply tf.plan ```
+4. Adjust _variables.tf_
+  - isp_cidr.default = "<a trusted CIDR corresponding to your ISP or netrange>"
+  - aws-region.default = "<your preferred region>"
+  - subnet_id.default = "<an existing subnet id within an AWS VPC that exists, to which the EC2 instance will be deployed>"
+  - aws_amis.default = "<map of ami(s) by AWS region>"
+  
+5. Initialize terraform: ``` terraform init ```
+6. Terraform plan: ``` terraform plan -out=tf.plan ```
+7. If above step works, Terraform apply: ``` terraform apply tf.plan ```
 
 ### TODO
 
