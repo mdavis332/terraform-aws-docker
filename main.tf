@@ -20,6 +20,14 @@ resource "aws_security_group" "evilginx2" {
         protocol = "tcp"
         cidr_blocks = ["${var.isp_cidr.default}"]
     }
+    
+    # DNS access from known IP range
+    ingress {
+        from_port = 53
+        to_port = 53
+        protocol = "udp"
+        cidr_blocks = ["${var.isp_cidr.default}"]
+    }
 
     # HTTPS access from known IP range
     ingress {
