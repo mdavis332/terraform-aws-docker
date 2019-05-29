@@ -18,15 +18,15 @@ resource "aws_security_group" "evilginx2" {
         from_port = 22
         to_port = 22
         protocol = "tcp"
-        cidr_blocks = ["${var.isp_cidr.default}"]
+        cidr_blocks = ["${var.isp_cidr}"]
     }
-    
+
     # DNS access from known IP range
     ingress {
         from_port = 53
         to_port = 53
         protocol = "udp"
-        cidr_blocks = ["${var.isp_cidr.default}"]
+        cidr_blocks = ["${var.isp_cidr}"]
     }
 
     # HTTPS access from known IP range
@@ -34,7 +34,7 @@ resource "aws_security_group" "evilginx2" {
         from_port = 443
         to_port = 443
         protocol = "tcp"
-        cidr_blocks = ["${var.isp_cidr.default}"]
+        cidr_blocks = ["${var.isp_cidr}"]
     }
     
     # HTTP access from known IP range
@@ -42,7 +42,7 @@ resource "aws_security_group" "evilginx2" {
         from_port = 80
         to_port = 80
         protocol = "tcp"
-        cidr_blocks = ["${var.isp_cidr.default}"]
+        cidr_blocks = ["${var.isp_cidr}"]
     }
 
     # outbound internet access
